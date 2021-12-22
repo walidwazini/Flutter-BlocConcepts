@@ -13,20 +13,20 @@ class FirstScreen extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.red,
         ),
-        home: ProviderAndListener(),
+        home: ForProviderAndBuilder(),
       ),
     );
   }
 }
 
-class ProviderAndListener extends StatefulWidget {
-  const ProviderAndListener({Key? key}) : super(key: key);
+class ForProviderAndBuilder extends StatefulWidget {
+  const ForProviderAndBuilder({Key? key}) : super(key: key);
 
   @override
-  _ProviderAndListenerState createState() => _ProviderAndListenerState();
+  _ForProviderAndBuilderState createState() => _ForProviderAndBuilderState();
 }
 
-class _ProviderAndListenerState extends State<ProviderAndListener> {
+class _ForProviderAndBuilderState extends State<ForProviderAndBuilder> {
   TextStyle style2 = TextStyle(fontSize: 25, color: Colors.black);
 
   @override

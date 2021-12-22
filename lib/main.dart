@@ -2,7 +2,8 @@
 import 'package:bloc_concepts/Cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import './Screens/BlocProviderAndBuilder.dart';
+import './Screens/FirstScreen.dart';
+import './Screens/SecondScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         // home: MyHomePage(title: 'Bloc Concepts'),
-      home: FirstScreen(),
+      home: SecondScreen(),
       ),
 
     );
