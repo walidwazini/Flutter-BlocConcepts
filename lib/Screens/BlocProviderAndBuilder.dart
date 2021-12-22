@@ -1,62 +1,39 @@
-// ignore_for_file: prefer_const_constructors_in_immutables
-import 'package:bloc_concepts/Cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import './Screens/BlocProviderAndBuilder.dart';
+import '../Cubit/counter_cubit.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({Key? key}) : super(key: key);
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider<CounterCubit>(
       create: (context) => CounterCubit(),
       child: MaterialApp(
-        title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.red,
         ),
-        // home: MyHomePage(title: 'Bloc Concepts'),
-      home: FirstScreen(),
+        home: ProviderAndListener(),
       ),
-
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  // ignore: use_key_in_widget_constructors
-  MyHomePage({Key? key, required this.title});
-
-  final String title;
+class ProviderAndListener extends StatefulWidget {
+  const ProviderAndListener({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _ProviderAndListenerState createState() => _ProviderAndListenerState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  // ignore: prefer_final_fields
-  int _counter = 0;
-
-  TextStyle style() {
-    return TextStyle(
-      fontSize: 30,
-      color: Colors.black,
-    );
-  }
-
+class _ProviderAndListenerState extends State<ProviderAndListener> {
   TextStyle style2 = TextStyle(fontSize: 25, color: Colors.black);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Bloc Provider and Builder'),
       ),
       body: Center(
         child: Column(
@@ -66,14 +43,16 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             BlocBuilder<CounterCubit, CounterState>(
-              builder: (context, state){
+              builder: (context, state) {
                 return Text(
                   state.counterValue.toString(),
-                  style: style(),
+                  style: style2,
                 );
               },
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -106,7 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
